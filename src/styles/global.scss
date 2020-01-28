@@ -1,0 +1,46 @@
+a.link {
+  cursor: pointer;
+  transition: color 0.4s ease;
+  color: $mainColor;
+  &:hover {
+    color: $secondColor !important;
+  }
+}
+.btn.btn-primary {
+  border-radius: 30px;
+  padding: 7px 25px;
+  font-size: .9rem;
+  text-transform: uppercase;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: $bgColor;
+  font-size: .9rem;
+}
+
+.brand {
+  color: $mainColor;
+  text-transform: capitalize;
+}
+
+
+section {
+  padding: 40px 0;
+}
+
+
+.center-v {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.error-message {
+  color: #c62626;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.main-title {
+  color: #444;
+  font-size: 1.9rem;
+}

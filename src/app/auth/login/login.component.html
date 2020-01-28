@@ -1,0 +1,48 @@
+<section class="logen-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <div class="login-box">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-md-6">
+                            <img class="img-fluid w-100" src="/assets/images/login.png" alt="Spaces login">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="content-wrapper">
+                                <h4 class="form-title mb-3"> Welcome back!</h4>
+                                <p>Please login to access <span class="brand">Spaces</span> dashboard</p>
+                                <div *ngIf="error" class="alert alert-danger" role="alert">
+                                    {{error}}
+                                  </div>
+                                <form [formGroup]="form" (submit)="login()">
+                                    <div class="form-group">
+                                      <label for="userNameInput">Username</label>
+                                      <input type="text" formControlName="userName" class="form-control" id="userNameInput" placeholder="Username..." >
+                                      <div class="error-message" *ngIf="f.userName.invalid && f.userName.touched">
+                                        <span *ngIf="f.userName.errors.required">Username is required</span>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Password</label>
+                                      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="**********">
+                                      <div class="error-message" *ngIf="f.password.invalid && f.password.touched">
+                                        <span *ngIf="f.password.errors.required">Password is required</span>
+                                      </div>
+                                    </div>
+                                    <div class="row mt-4 align-items-center">
+                                        <div class="col-6">
+                                            <a class="link">Forget password?</a>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button>
+                                        </div>
+                                    </div>
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

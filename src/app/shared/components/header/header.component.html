@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white text-uppercase">
+  <div class="container">
+    <a class="navbar-brand logoItem" routerLink="/" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"><img src="/assets/images/Logo.svg" alt="Spaces"></a>
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [ngClass]="{show: showMenu}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <li class="nav-item" *ngIf="!currentUser">
+          <a class="btn btn-primary"  [routerLink]="['/auth','login']"
+             routerLinkActive="active">login</a>
+        </li>
+        <li class="nav-item" *ngIf="currentUser">
+          <a class="btn btn-primary" [routerLink]="['/users']"
+             routerLinkActive="active">Enquire</a>
+        </li>
+        <li class="nav-item" *ngIf="currentUser">
+          <a class="btn btn-primary" (click)="logout()" *ngIf="currentUser">logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

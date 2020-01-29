@@ -5,7 +5,7 @@
                 <app-breadcrumb [breadCrumbData]="headingData.crumbData"></app-breadcrumb>
                 <h1 class="main-title" *ngIf="headingData.title">{{headingData.title}}</h1>
             </div>
-            <div class="col-md-3" *ngIf="headingData.actionText">
+            <div class="col-md-3 text-right" *ngIf="headingData.actionText">
                 <a class="btn btn-primary" (click)="handleAction()" [innerHtml]="headingData.actionText"></a>
             </div>
         </div>

@@ -3,4 +3,5 @@ export interface UserModel {
   name: string;
   jobTitle: string;
   profileImg: string;
+  thumbProfileImg: string;
 }

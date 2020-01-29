@@ -1,1 +1,14 @@
-<p>user-card works!</p>
+<div class="user-item" [ngClass]="{active: active}" (click)="handleCardClicked()">
+    <div class="row align-items-center">
+        <div class="col-md-9">
+            <div class="img-wrapper mr-3">
+                <img class="img-fluid" [src]="userData.thumbProfileImg">
+            </div>
+            <span class="ml-2">{{userData.name}}</span>
+        </div>
+        <div class="col-md-3" *ngIf="!active">
+            <a class="icon-btn mr-3" (click)="handleEditClicked($event)"><i class="fas fa-pen"></i></a>
+            <a class="icon-btn" (click)="handleDeleteClicked($event)"><i class="fas fa-trash"></i></a>
+        </div>
+    </div>
+</div>

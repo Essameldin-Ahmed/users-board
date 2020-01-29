@@ -1,0 +1,49 @@
+@import "~src/styles/variables";
+.user-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border-radius: 20px;
+  position: relative;
+  .img-wrapper {
+    max-width: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1.5px solid #fff;
+  }
+ 
+  .icon-btn {
+    width: 34px;
+    height: 35px;
+    border: 1px solid $mainColor;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    i {
+      line-height: 35px;
+    }
+  }
+  &::after {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 13px);
+    font-weight: 900;
+    color: $mainColor;
+    font-size: 18px;
+  }
+  &:hover {
+    background-color: #f9f5fb;
+  }
+  &.active {
+    background-color: $mainColor;
+    color: #fff;
+    &::after {
+        color: #fff;
+    }
+  }
+}

@@ -1,9 +1,52 @@
-<app-crumb-heading [headingData]="headingData" (callBackAction)="handleHeadingAction()"></app-crumb-heading>
-<section class="users-list" appInfiniteScroller scrollPerecnt="70" immediateCallback="true"
-[scrollCallback]="scrollCallback">
+<app-crumb-heading [headingData]="headingData" (callBackAction)="addNewUser()"></app-crumb-heading>
+<section class="users-list" >
     <div class="container">
-        <div class="users-wrapper" >
-            <app-user-card *ngFor="let user of usersList" [userData]="user"></app-user-card>
+        <div class="users-wrapper" appInfiniteScroller scrollPerecnt="70" immediateCallback="true"
+        [scrollCallback]="scrollCallback">
+            <div class="row align-items-stretch" *ngIf="usersList && usersList.length > 0">
+                <div class="" [ngClass]="{'col-md-8': selectedUser, 'col-12': !selectedUser}">
+                    <div class="head mb-3">
+                        <div class="row">
+                            <div class="col-md-9">
+                                User
+                            </div>
+                            <div class="col-md-3">
+                                Actions
+                            </div>
+                        </div>
+                    </div>
+                    <app-user-card class="card-wrapper" [active]="user.id === selectedUser?.id"
+                        *ngFor="let user of usersList"
+                        [userData]="user"
+                        (cardClicked)="selectUser($event)"
+                        (editClicked)="editUser($event)"
+                        (deleteClicked)="deleteUser($event)">
+                    </app-user-card>
+                </div>
+                <div class="col-md-4 bg-gray" *ngIf="selectedUser">
+                    <div class="details-card">
+                        <a class="close-item" (click)="removeSelection()"><i class="fas fa-times"></i></a>
+                        <div class="img-wrapper mb-4">
+                            <img class="img-fluid" [src]="selectedUser.profileImg">
+                        </div>
+                        <h4>{{selectedUser.name}}</h4>
+
+                        <div class="btns-wrapper my-5">
+                            <a class="btn btn-primary mr-4" (click)="editUser(selectedUser)">
+                                <i class="fas fa-pen"></i> Edit
+                            </a>
+                            <a class="btn btn-flat" (click)="deleteUser(selectedUser)">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
+
 </section>

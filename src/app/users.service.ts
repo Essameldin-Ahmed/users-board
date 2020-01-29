@@ -8,16 +8,18 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersService {
-  private usersList: UserModel[];
-
-  currentPage = 1;
+  private usersList: UserModel[] = [];
+  
+  selectedUser: UserModel;
   pageCount = 5;
   constructor(private http: HttpClient) { }
 
   getUsersList
 
   getUsers(page: number = 1) {
-    return this.http.get<UserModel[]>(`${APIPath.USERS}`, { params: { page: page.toString(), _limit: this.pageCount.toString(), _start: ((this.currentPage - 1) * this.pageCount).toString() } })
+    return this.http.get<UserModel[]>
+    (`${APIPath.USERS}`, { params: { page: page.toString(), _limit: this.pageCount.toString(), _start: ((page - 1) * this.pageCount).toString() } })
      
   }
+  
 }

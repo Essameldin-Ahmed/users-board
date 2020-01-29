@@ -9,13 +9,29 @@ a.link {
 .btn.btn-primary {
   border-radius: 30px;
   padding: 7px 25px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn.btn-flat {
+  border-radius: 30px;
+  padding: 7px 25px;
   font-size: .9rem;
   text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid $mainColor;
+  color: $mainColor;
+  transition: all .4s ease;
+  &:hover {
+    background-color: $mainColor;
+    color: #fff;
+  }
 }
 body {
   font-family: "Open Sans", sans-serif;
   background-color: $bgColor;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .brand {
@@ -23,11 +39,9 @@ body {
   text-transform: capitalize;
 }
 
-
 section {
   padding: 40px 0;
 }
-
 
 .center-v {
   position: absolute;
@@ -43,4 +57,11 @@ section {
 .main-title {
   color: #444;
   font-size: 1.9rem;
+}
+.mat-dialog-container {
+  border-radius: 10px !important;
+  color: #777;
+}
+.cdk-overlay-pane, .mat-dialog-container {
+  overflow: visible !important;
 }

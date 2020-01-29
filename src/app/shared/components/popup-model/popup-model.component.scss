@@ -1,0 +1,18 @@
+.overlay-wrapper {
+  padding-top: 30px;
+  position: relative;
+  .img-wrapper {
+    position: absolute;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    top: -75px;
+    left: calc(50% - 50px);
+    border: 2px solid #fff;
+    background-color: #7f8c8d;
+
+    img {
+        width: 100%;
+    }
+  }
+}

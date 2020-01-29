@@ -1,6 +1,52 @@
 .users-wrapper {
-    background-color: #fff;
-    box-shadow: 1px 1px 10px #aaa;
-    border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px #aaa;
+  border-radius: 20px;
+  padding: 0 15px;
 
+  height: 500px;
+  overflow-y: scroll;
+
+  li {
+    padding: 10px 5px;
+    line-height: 1.5;
+    &:nth-child(odd) {
+      background: #ffe8d8;
+    }
+    &:nth-child(even) {
+      background: #f5ad7c;
+    }
+  }
+  .head {
+    color: #777;
+    padding: 15px 15px 0;
+  }
+  .card-wrapper {
+    padding: 12px 0;
+    display: block;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  .bg-gray {
+    background-color: #f5f5f5;
+  }
+  .details-card {
+    text-align: center;
+    position: relative;
+    padding-top: 60px;
+    .close-item {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .img-wrapper {
+      border-radius: 50%;
+      overflow: hidden;
+      max-width: 160px;
+      margin: auto;
+    }
+  }
 }

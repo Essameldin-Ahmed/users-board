@@ -8,7 +8,7 @@ import { PopupModelComponent } from './components/popup-model/popup-model.compon
 import { CrumbHeadingComponent } from './components/crumb-heading/crumb-heading.component';
 import { RouterModule } from '@angular/router';
 import { InfiniteScrollerDirective } from './directives/infinit-scroller.directive';
-
+import { MatDialogModule } from '@angular/material';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -21,6 +21,9 @@ import { InfiniteScrollerDirective } from './directives/infinit-scroller.directi
   imports: [
     CommonModule,
     RouterModule,
+    MatDialogModule,
+    FormsModule
+
   ],
   exports: [
     HeaderComponent,
@@ -28,7 +31,9 @@ import { InfiniteScrollerDirective } from './directives/infinit-scroller.directi
     BreadcrumbComponent,
     PopupModelComponent,
     CrumbHeadingComponent,
-    InfiniteScrollerDirective
-  ]
+    InfiniteScrollerDirective,
+    MatDialogModule
+  ],
+  entryComponents: [PopupModelComponent],
 })
 export class SharedModule { }

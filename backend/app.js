@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRouter = require('./routes/auth');
@@ -21,6 +22,7 @@ app.use(function (req, res, next) {
     next();
   }
 });
+app.use("/content", express.static(path.join("backend/content")))
 
 
 app.use('/api/auth', authRouter);

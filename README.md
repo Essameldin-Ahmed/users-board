@@ -20,7 +20,7 @@ Users Page: `http://localhost:4200/users`.
 
 ## User credentials
 
-UserName: `admin`.
+UserName: `admin`
 
 Password: `admin123`
 

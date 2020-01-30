@@ -14,8 +14,9 @@ Run `npm run server` will start nodeJs server on `http://localhost:3000/`.
 
 ## Pages route
 
-Login Page: http://localhost:4200/login
-Users Page: http://localhost:4200/users
+Login Page: `http://localhost:4200/login`
+
+Users Page: `http://localhost:4200/users`
 
 ## User credentials
 

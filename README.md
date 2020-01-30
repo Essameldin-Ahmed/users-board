@@ -20,8 +20,8 @@ Users Page: `http://localhost:4200/users`.
 
 ## User credentials
 
-UserName: admin
-Password: admin123
+UserName: `admin`.
+Password: `admin123`
 
 ## Build
 

@@ -2,10 +2,8 @@
   background-color: #fff;
   box-shadow: 1px 1px 10px #aaa;
   border-radius: 20px;
-  padding: 0 15px;
-
-  height: 500px;
-  overflow-y: scroll;
+  overflow: hidden;
+  padding: 0 10px;
 
   li {
     padding: 10px 5px;
@@ -30,6 +28,7 @@
   }
   .bg-gray {
     background-color: #f5f5f5;
+    box-shadow: -3px -1px 10px #ccc;
   }
   .details-card {
     text-align: center;
@@ -48,5 +47,16 @@
       max-width: 160px;
       margin: auto;
     }
+  }
+  .empty {
+    text-align: center;
+    padding: 50px;
+    font-size: 27px;
+  }
+}
+
+@media (min-width: 576px) {
+  .users-wrapper {
+    padding: 0 15px;
   }
 }

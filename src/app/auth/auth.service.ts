@@ -4,7 +4,6 @@ import { UserModel } from '../shared/models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { APIPath } from '../shared/api-config';
 import { map, catchError } from 'rxjs/operators';
-import { MainService } from '../shared/sevices/main.service';
 import { AdminModel } from '../shared/models/admin.model';
 
 @Injectable({
@@ -17,9 +16,7 @@ export class AuthService {
   error;
   userData;
 
-  constructor(private http: HttpClient,
-    private mainService: MainService
-  ) {
+  constructor(private http: HttpClient) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     let user: AdminModel;
     if (this.userData) {
@@ -34,13 +31,11 @@ export class AuthService {
   }
 
   login(userName: string, password: string) {
-    this.mainService.startLoading();
     return this.http.post<{ user: {}, jwt: string }>(`${APIPath.AUTH}/login`, { userName, password })
       .pipe(
         // login successful if there's a jwt token in the response
         map(res => this.loginSuccess(res)),
         catchError(err => {
-          this.mainService.stopLoading();
           throw (err);
         })
       );
@@ -53,7 +48,6 @@ export class AuthService {
       localStorage.setItem('userData', JSON.stringify(res));
       let user: AdminModel = this.prepareUser(res.userData)
       this.currentUserSubject.next(user);
-      this.mainService.stopLoading();
       return user;
     }
     return null;

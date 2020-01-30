@@ -3,21 +3,32 @@
         <img class="img-fluid" [src]="data.profileImg || 'http://localhost:3000/content/images/users/default.png'">
     </div>
     <div mat-dialog-content>
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" placeholder="name..." [(ngModel)]="data.name">
-        </div>
-        <div class="form-group">
-            <label>Job title</label>
-            <input type="text" class="form-control" placeholder="Job title..." [(ngModel)]="data.jobTitle">
-        </div>
+        <form #userForm="ngForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input #name="ngModel" name="name" type="text" class="form-control" placeholder="name..." [(ngModel)]="data.name" required>
+                <div *ngIf="!name.valid && name.touched"
+                    class="error-message">
+                    Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Job title</label>
+                <input #jobTitle="ngModel" name="jobTitle" type="text" class="form-control" placeholder="Job title..." [(ngModel)]="data.jobTitle" required>
+                <div *ngIf="!jobTitle.valid && jobTitle.touched"
+                    class="error-message">
+                    Job title is required
+                </div>
+            </div>
+        </form>
     </div>
     <div mat-dialog-actions class="mb-2">
         <div class="col-6">
             <button class="btn btn-flat btn-block" (click)="onNoClick()">{{data.cancelBtn || 'cancel'}}</button>
         </div>
         <div class="col-6">
-            <button class="btn btn-primary  btn-block" [mat-dialog-close]="data.name" cdkFocusInitial>{{data.okBtn || 'ok'}}</button>
+            <button class="btn btn-primary  btn-block" [disabled]="!userForm.form.valid" [mat-dialog-close]="{id: data.id, name: data.name, jobTitle: data.jobTitle }"
+                cdkFocusInitial>{{data.okBtn || 'ok'}}</button>
         </div>
     </div>
 </div>
@@ -31,7 +42,8 @@
             <button class="btn btn-flat btn-block" (click)="onNoClick()">{{data.cancelBtn || 'No'}}</button>
         </div>
         <div class="col-6">
-            <button class="btn btn-primary  btn-block" [mat-dialog-close]="data.name" cdkFocusInitial>{{data.okBtn || 'Yes'}}</button>
+            <button class="btn btn-primary  btn-block" [mat-dialog-close]="data.id"
+                cdkFocusInitial>{{data.okBtn || 'Yes'}}</button>
         </div>
     </div>
 </ng-template>

@@ -7,7 +7,7 @@ const users = require('./routes/users');
 
 const app = express();
 
-app.listen('3000', () => console.log(`Example app listening on port ${'3000'}!`))
+app.listen('3000', () => console.log(`Users Board app listening on port ${'3000'}!`))
 app.use(bodyParser.json({limit: '10mb', extended: true}));
 
 // allaw access

@@ -7,11 +7,13 @@ const routes: Routes = [
   {path: 'about', loadChildren: 'src/app/about/about.module#AboutModule'},
   {path: 'contact', loadChildren: 'src/app/contact/contact.module#ContactModule'},
   {path: 'users', loadChildren: 'src/app/users/users.module#UsersModule', canActivate: [AuthGuard], canActivateChild: [AuthGuard]},
-  {path: 'auth', loadChildren: 'src/app/auth/auth.module#AuthModule'},
+  {path: 'login', loadChildren: 'src/app/auth/auth.module#AuthModule'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

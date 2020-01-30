@@ -9,17 +9,27 @@ import { map } from 'rxjs/operators';
 })
 export class UsersService {
   private usersList: UserModel[] = [];
-  
+
   selectedUser: UserModel;
   pageCount = 5;
+
   constructor(private http: HttpClient) { }
 
   getUsersList
 
   getUsers(page: number = 1) {
-    return this.http.get<UserModel[]>
-    (`${APIPath.USERS}`, { params: { page: page.toString(), _limit: this.pageCount.toString(), _start: ((page - 1) * this.pageCount).toString() } })
-     
+    return this.http.get<{users: UserModel[], latest: boolean}>(`${APIPath.USERS}`, { params: { limit: this.pageCount.toString(), start: ((page - 1) * this.pageCount).toString() } })
   }
-  
+
+  addUser(user: UserModel) {
+    return this.http.post<UserModel>(`${APIPath.USERS}`, user)
+  }
+
+  editUser(user: UserModel) {
+    return this.http.put<UserModel>(`${APIPath.USERS}`, user)
+  }
+
+  deleteUser(userId: string) {
+    return this.http.delete(`${APIPath.USERS}/${userId}`)
+  }
 }

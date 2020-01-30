@@ -1,12 +1,12 @@
-<div class="user-item" [ngClass]="{active: active}" (click)="handleCardClicked()">
+<div class="user-item" [ngClass]="{active: cardData?.active}" (click)="handleCardClicked()" *ngIf="cardData">
     <div class="row align-items-center">
-        <div class="col-md-9">
-            <div class="img-wrapper mr-3">
-                <img class="img-fluid" [src]="userData.thumbProfileImg">
+        <div class="col-6" [ngClass]="{'col-md-10': !cardData?.smallView, 'col-md-9': cardData?.smallView}">
+            <div class="img-wrapper mr-3 d-none d-md-inline-block" >
+                <img class="img-fluid" [src]="cardData?.userData.thumbProfileImg">
             </div>
-            <span class="ml-2">{{userData.name}}</span>
+            <span class="ml-2" [ngClass]="{'col-md-2': !cardData?.smallView, 'col-md-3': cardData?.smallView}">{{cardData?.userData?.name}}</span>
         </div>
-        <div class="col-md-3" *ngIf="!active">
+        <div class="col-6  col-md-2" *ngIf="!cardData?.active">
             <a class="icon-btn mr-3" (click)="handleEditClicked($event)"><i class="fas fa-pen"></i></a>
             <a class="icon-btn" (click)="handleDeleteClicked($event)"><i class="fas fa-trash"></i></a>
         </div>

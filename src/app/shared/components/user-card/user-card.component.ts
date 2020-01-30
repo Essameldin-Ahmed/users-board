@@ -7,8 +7,9 @@ import { UserModel } from '../../models/user.model';
   styleUrls: ['./user-card.component.scss']
 })
 export class UserCardComponent implements OnInit {
-  @Input() userData: UserModel
-  @Input() active: boolean;
+  @Input() cardData: {userData: UserModel,active: boolean, smallView: boolean } 
+
+  
   @Output() cardClicked: EventEmitter<UserModel> = new EventEmitter()
   @Output() editClicked: EventEmitter<UserModel> = new EventEmitter()
   @Output() deleteClicked: EventEmitter<UserModel> = new EventEmitter()
@@ -20,16 +21,16 @@ export class UserCardComponent implements OnInit {
   }
 
   handleCardClicked() {
-    this.cardClicked.emit(this.userData);
+    this.cardClicked.emit(this.cardData.userData);
   }
 
   handleEditClicked(e: Event) {
     e.stopPropagation()
-    this.editClicked.emit(this.userData);
+    this.editClicked.emit(this.cardData.userData);
   }
 
   handleDeleteClicked(e: Event) {
     e.stopPropagation()
-    this.deleteClicked.emit(this.userData);
+    this.deleteClicked.emit(this.cardData.userData);
   }
 }

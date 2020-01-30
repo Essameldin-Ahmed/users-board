@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
@@ -7,8 +7,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { PopupModelComponent } from './components/popup-model/popup-model.component';
 import { CrumbHeadingComponent } from './components/crumb-heading/crumb-heading.component';
 import { RouterModule } from '@angular/router';
-import { InfiniteScrollerDirective } from './directives/infinit-scroller.directive';
 import { MatDialogModule } from '@angular/material';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -16,7 +16,7 @@ import { MatDialogModule } from '@angular/material';
     BreadcrumbComponent,
     PopupModelComponent,
     CrumbHeadingComponent,
-    InfiniteScrollerDirective
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -31,8 +31,8 @@ import { MatDialogModule } from '@angular/material';
     BreadcrumbComponent,
     PopupModelComponent,
     CrumbHeadingComponent,
-    InfiniteScrollerDirective,
-    MatDialogModule
+    MatDialogModule,
+    SpinnerComponent
   ],
   entryComponents: [PopupModelComponent],
 })

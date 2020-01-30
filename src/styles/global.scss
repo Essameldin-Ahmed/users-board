@@ -6,28 +6,7 @@ a.link {
     color: $secondColor !important;
   }
 }
-.btn.btn-primary {
-  border-radius: 30px;
-  padding: 7px 25px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.btn.btn-flat {
-  border-radius: 30px;
-  padding: 7px 25px;
-  font-size: .9rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid $mainColor;
-  color: $mainColor;
-  transition: all .4s ease;
-  &:hover {
-    background-color: $mainColor;
-    color: #fff;
-  }
-}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: $bgColor;
@@ -64,4 +43,34 @@ section {
 }
 .cdk-overlay-pane, .mat-dialog-container {
   overflow: visible !important;
+}
+.btn.btn-primary {
+  border-radius: 30px;
+  padding: 6px 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn.btn-flat {
+  border-radius: 30px;
+  padding: 6px 15px;
+  font-size: .9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid $mainColor;
+  color: $mainColor;
+  transition: all .4s ease;
+  &:hover {
+    background-color: $mainColor;
+    color: #fff;
+  }
+}
+@media (min-width: 576px) {
+  .btn.btn-flat {
+    padding: 7px 25px;
+  }
+  .btn.btn-primary {
+    padding: 7px 25px;
+  }
 }
